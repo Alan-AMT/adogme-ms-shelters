@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/infrastructure/prisma/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["shelters_service"]
+}
+
+model Shelter {
+  id          String  @id
+  userId      String
+  name        String
+  description String?
+  address     String?
+  phone       String?
+  email       String?
+  website     String?
+
+  createdAt DateTime
+  updatedAt DateTime
+
+  @@schema("shelters_service")
+}
