@@ -94,4 +94,29 @@ export class PrismaShelterRepository implements ShelterRepository {
         }))
         return mapped
     }
+
+    async update(shelter: Shelter): Promise<void> {
+        await this.prisma.shelter.update({
+            where: { id: shelter.id },
+            data: {
+                userId: shelter.userId,
+                name: shelter.name,
+                description: shelter.description,
+                phone: shelter.phone,
+                email: shelter.email,
+                website: shelter.website,
+                ubicacion: shelter.ubicacion,
+                ciudad: shelter.ciudad,
+                estado: shelter.estado,
+                facebook: shelter.facebook,
+                instagram: shelter.instagram,
+                twitter: shelter.twitter,
+                aprobado: shelter.aprobado,
+                status: shelter.status as any,
+                logo: shelter.logo,
+                imageUrl: shelter.imageUrl,
+                updatedAt: shelter.updatedAt,
+            },
+        });
+    }
 }
