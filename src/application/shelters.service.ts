@@ -48,8 +48,11 @@ export class SheltersService {
         return this.shelterRepository.getAllShelters()
     }
 
-    async updateShelter(id: string, updateShelterDto: UpdateShelterDto): Promise<Shelter> {
+    async updateShelter(id: string, updateShelterDto: UpdateShelterDto, userId: string): Promise<Shelter> {
         const existingShelter = await this.shelterRepository.findById(id);
+        if (existingShelter.userId !== userId) {
+            throw new Error('Unauthorized');
+        }
         const updatedShelter = Shelter.create({
             id: existingShelter.id,
             userId: existingShelter.userId,
