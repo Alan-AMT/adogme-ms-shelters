@@ -522,10 +522,19 @@ export const ShelterScalarFieldEnum = {
   userId: 'userId',
   name: 'name',
   description: 'description',
-  address: 'address',
   phone: 'phone',
   email: 'email',
   website: 'website',
+  ubicacion: 'ubicacion',
+  ciudad: 'ciudad',
+  estado: 'estado',
+  facebook: 'facebook',
+  instagram: 'instagram',
+  twitter: 'twitter',
+  aprobado: 'aprobado',
+  status: 'status',
+  logo: 'logo',
+  imageUrl: 'imageUrl',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -574,6 +583,27 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'ShelterStatus'
+ */
+export type EnumShelterStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ShelterStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ShelterStatus[]'
+ */
+export type ListEnumShelterStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ShelterStatus[]'>
     
 
 

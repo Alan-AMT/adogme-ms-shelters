@@ -29,10 +29,19 @@ export type ShelterMinAggregateOutputType = {
   userId: string | null
   name: string | null
   description: string | null
-  address: string | null
   phone: string | null
   email: string | null
   website: string | null
+  ubicacion: string | null
+  ciudad: string | null
+  estado: string | null
+  facebook: string | null
+  instagram: string | null
+  twitter: string | null
+  aprobado: boolean | null
+  status: $Enums.ShelterStatus | null
+  logo: string | null
+  imageUrl: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -42,10 +51,19 @@ export type ShelterMaxAggregateOutputType = {
   userId: string | null
   name: string | null
   description: string | null
-  address: string | null
   phone: string | null
   email: string | null
   website: string | null
+  ubicacion: string | null
+  ciudad: string | null
+  estado: string | null
+  facebook: string | null
+  instagram: string | null
+  twitter: string | null
+  aprobado: boolean | null
+  status: $Enums.ShelterStatus | null
+  logo: string | null
+  imageUrl: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -55,10 +73,19 @@ export type ShelterCountAggregateOutputType = {
   userId: number
   name: number
   description: number
-  address: number
   phone: number
   email: number
   website: number
+  ubicacion: number
+  ciudad: number
+  estado: number
+  facebook: number
+  instagram: number
+  twitter: number
+  aprobado: number
+  status: number
+  logo: number
+  imageUrl: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -70,10 +97,19 @@ export type ShelterMinAggregateInputType = {
   userId?: true
   name?: true
   description?: true
-  address?: true
   phone?: true
   email?: true
   website?: true
+  ubicacion?: true
+  ciudad?: true
+  estado?: true
+  facebook?: true
+  instagram?: true
+  twitter?: true
+  aprobado?: true
+  status?: true
+  logo?: true
+  imageUrl?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -83,10 +119,19 @@ export type ShelterMaxAggregateInputType = {
   userId?: true
   name?: true
   description?: true
-  address?: true
   phone?: true
   email?: true
   website?: true
+  ubicacion?: true
+  ciudad?: true
+  estado?: true
+  facebook?: true
+  instagram?: true
+  twitter?: true
+  aprobado?: true
+  status?: true
+  logo?: true
+  imageUrl?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -96,10 +141,19 @@ export type ShelterCountAggregateInputType = {
   userId?: true
   name?: true
   description?: true
-  address?: true
   phone?: true
   email?: true
   website?: true
+  ubicacion?: true
+  ciudad?: true
+  estado?: true
+  facebook?: true
+  instagram?: true
+  twitter?: true
+  aprobado?: true
+  status?: true
+  logo?: true
+  imageUrl?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -182,10 +236,19 @@ export type ShelterGroupByOutputType = {
   userId: string
   name: string
   description: string | null
-  address: string | null
   phone: string | null
   email: string | null
   website: string | null
+  ubicacion: string | null
+  ciudad: string | null
+  estado: string | null
+  facebook: string | null
+  instagram: string | null
+  twitter: string | null
+  aprobado: boolean
+  status: $Enums.ShelterStatus
+  logo: string | null
+  imageUrl: string | null
   createdAt: Date
   updatedAt: Date
   _count: ShelterCountAggregateOutputType | null
@@ -216,10 +279,19 @@ export type ShelterWhereInput = {
   userId?: Prisma.StringFilter<"Shelter"> | string
   name?: Prisma.StringFilter<"Shelter"> | string
   description?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  address?: Prisma.StringNullableFilter<"Shelter"> | string | null
   phone?: Prisma.StringNullableFilter<"Shelter"> | string | null
   email?: Prisma.StringNullableFilter<"Shelter"> | string | null
   website?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  ubicacion?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  ciudad?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  estado?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  facebook?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  instagram?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  twitter?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  aprobado?: Prisma.BoolFilter<"Shelter"> | boolean
+  status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
+  logo?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  imageUrl?: Prisma.StringNullableFilter<"Shelter"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
 }
@@ -229,10 +301,19 @@ export type ShelterOrderByWithRelationInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  address?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   website?: Prisma.SortOrderInput | Prisma.SortOrder
+  ubicacion?: Prisma.SortOrderInput | Prisma.SortOrder
+  ciudad?: Prisma.SortOrderInput | Prisma.SortOrder
+  estado?: Prisma.SortOrderInput | Prisma.SortOrder
+  facebook?: Prisma.SortOrderInput | Prisma.SortOrder
+  instagram?: Prisma.SortOrderInput | Prisma.SortOrder
+  twitter?: Prisma.SortOrderInput | Prisma.SortOrder
+  aprobado?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  logo?: Prisma.SortOrderInput | Prisma.SortOrder
+  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -245,10 +326,19 @@ export type ShelterWhereUniqueInput = Prisma.AtLeast<{
   userId?: Prisma.StringFilter<"Shelter"> | string
   name?: Prisma.StringFilter<"Shelter"> | string
   description?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  address?: Prisma.StringNullableFilter<"Shelter"> | string | null
   phone?: Prisma.StringNullableFilter<"Shelter"> | string | null
   email?: Prisma.StringNullableFilter<"Shelter"> | string | null
   website?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  ubicacion?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  ciudad?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  estado?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  facebook?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  instagram?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  twitter?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  aprobado?: Prisma.BoolFilter<"Shelter"> | boolean
+  status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
+  logo?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  imageUrl?: Prisma.StringNullableFilter<"Shelter"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
 }, "id">
@@ -258,10 +348,19 @@ export type ShelterOrderByWithAggregationInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  address?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   website?: Prisma.SortOrderInput | Prisma.SortOrder
+  ubicacion?: Prisma.SortOrderInput | Prisma.SortOrder
+  ciudad?: Prisma.SortOrderInput | Prisma.SortOrder
+  estado?: Prisma.SortOrderInput | Prisma.SortOrder
+  facebook?: Prisma.SortOrderInput | Prisma.SortOrder
+  instagram?: Prisma.SortOrderInput | Prisma.SortOrder
+  twitter?: Prisma.SortOrderInput | Prisma.SortOrder
+  aprobado?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  logo?: Prisma.SortOrderInput | Prisma.SortOrder
+  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ShelterCountOrderByAggregateInput
@@ -277,10 +376,19 @@ export type ShelterScalarWhereWithAggregatesInput = {
   userId?: Prisma.StringWithAggregatesFilter<"Shelter"> | string
   name?: Prisma.StringWithAggregatesFilter<"Shelter"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
-  address?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   phone?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   email?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   website?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  ubicacion?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  ciudad?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  estado?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  facebook?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  instagram?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  twitter?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  aprobado?: Prisma.BoolWithAggregatesFilter<"Shelter"> | boolean
+  status?: Prisma.EnumShelterStatusWithAggregatesFilter<"Shelter"> | $Enums.ShelterStatus
+  logo?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Shelter"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Shelter"> | Date | string
 }
@@ -290,10 +398,19 @@ export type ShelterCreateInput = {
   userId: string
   name: string
   description?: string | null
-  address?: string | null
   phone?: string | null
   email?: string | null
   website?: string | null
+  ubicacion?: string | null
+  ciudad?: string | null
+  estado?: string | null
+  facebook?: string | null
+  instagram?: string | null
+  twitter?: string | null
+  aprobado?: boolean
+  status?: $Enums.ShelterStatus
+  logo?: string | null
+  imageUrl?: string | null
   createdAt: Date | string
   updatedAt: Date | string
 }
@@ -303,10 +420,19 @@ export type ShelterUncheckedCreateInput = {
   userId: string
   name: string
   description?: string | null
-  address?: string | null
   phone?: string | null
   email?: string | null
   website?: string | null
+  ubicacion?: string | null
+  ciudad?: string | null
+  estado?: string | null
+  facebook?: string | null
+  instagram?: string | null
+  twitter?: string | null
+  aprobado?: boolean
+  status?: $Enums.ShelterStatus
+  logo?: string | null
+  imageUrl?: string | null
   createdAt: Date | string
   updatedAt: Date | string
 }
@@ -316,10 +442,19 @@ export type ShelterUpdateInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -329,10 +464,19 @@ export type ShelterUncheckedUpdateInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -342,10 +486,19 @@ export type ShelterCreateManyInput = {
   userId: string
   name: string
   description?: string | null
-  address?: string | null
   phone?: string | null
   email?: string | null
   website?: string | null
+  ubicacion?: string | null
+  ciudad?: string | null
+  estado?: string | null
+  facebook?: string | null
+  instagram?: string | null
+  twitter?: string | null
+  aprobado?: boolean
+  status?: $Enums.ShelterStatus
+  logo?: string | null
+  imageUrl?: string | null
   createdAt: Date | string
   updatedAt: Date | string
 }
@@ -355,10 +508,19 @@ export type ShelterUpdateManyMutationInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -368,10 +530,19 @@ export type ShelterUncheckedUpdateManyInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -381,10 +552,19 @@ export type ShelterCountOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   website?: Prisma.SortOrder
+  ubicacion?: Prisma.SortOrder
+  ciudad?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
+  facebook?: Prisma.SortOrder
+  instagram?: Prisma.SortOrder
+  twitter?: Prisma.SortOrder
+  aprobado?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  logo?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -394,10 +574,19 @@ export type ShelterMaxOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   website?: Prisma.SortOrder
+  ubicacion?: Prisma.SortOrder
+  ciudad?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
+  facebook?: Prisma.SortOrder
+  instagram?: Prisma.SortOrder
+  twitter?: Prisma.SortOrder
+  aprobado?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  logo?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -407,10 +596,19 @@ export type ShelterMinOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   website?: Prisma.SortOrder
+  ubicacion?: Prisma.SortOrder
+  ciudad?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
+  facebook?: Prisma.SortOrder
+  instagram?: Prisma.SortOrder
+  twitter?: Prisma.SortOrder
+  aprobado?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  logo?: Prisma.SortOrder
+  imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -421,6 +619,14 @@ export type StringFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
+export type EnumShelterStatusFieldUpdateOperationsInput = {
+  set?: $Enums.ShelterStatus
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -434,10 +640,19 @@ export type ShelterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   userId?: boolean
   name?: boolean
   description?: boolean
-  address?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
+  ubicacion?: boolean
+  ciudad?: boolean
+  estado?: boolean
+  facebook?: boolean
+  instagram?: boolean
+  twitter?: boolean
+  aprobado?: boolean
+  status?: boolean
+  logo?: boolean
+  imageUrl?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["shelter"]>
@@ -447,10 +662,19 @@ export type ShelterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   userId?: boolean
   name?: boolean
   description?: boolean
-  address?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
+  ubicacion?: boolean
+  ciudad?: boolean
+  estado?: boolean
+  facebook?: boolean
+  instagram?: boolean
+  twitter?: boolean
+  aprobado?: boolean
+  status?: boolean
+  logo?: boolean
+  imageUrl?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["shelter"]>
@@ -460,10 +684,19 @@ export type ShelterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   userId?: boolean
   name?: boolean
   description?: boolean
-  address?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
+  ubicacion?: boolean
+  ciudad?: boolean
+  estado?: boolean
+  facebook?: boolean
+  instagram?: boolean
+  twitter?: boolean
+  aprobado?: boolean
+  status?: boolean
+  logo?: boolean
+  imageUrl?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["shelter"]>
@@ -473,15 +706,24 @@ export type ShelterSelectScalar = {
   userId?: boolean
   name?: boolean
   description?: boolean
-  address?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
+  ubicacion?: boolean
+  ciudad?: boolean
+  estado?: boolean
+  facebook?: boolean
+  instagram?: boolean
+  twitter?: boolean
+  aprobado?: boolean
+  status?: boolean
+  logo?: boolean
+  imageUrl?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ShelterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "description" | "address" | "phone" | "email" | "website" | "createdAt" | "updatedAt", ExtArgs["result"]["shelter"]>
+export type ShelterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "description" | "phone" | "email" | "website" | "ubicacion" | "ciudad" | "estado" | "facebook" | "instagram" | "twitter" | "aprobado" | "status" | "logo" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["shelter"]>
 
 export type $ShelterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Shelter"
@@ -491,10 +733,19 @@ export type $ShelterPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     userId: string
     name: string
     description: string | null
-    address: string | null
     phone: string | null
     email: string | null
     website: string | null
+    ubicacion: string | null
+    ciudad: string | null
+    estado: string | null
+    facebook: string | null
+    instagram: string | null
+    twitter: string | null
+    aprobado: boolean
+    status: $Enums.ShelterStatus
+    logo: string | null
+    imageUrl: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["shelter"]>
@@ -924,10 +1175,19 @@ export interface ShelterFieldRefs {
   readonly userId: Prisma.FieldRef<"Shelter", 'String'>
   readonly name: Prisma.FieldRef<"Shelter", 'String'>
   readonly description: Prisma.FieldRef<"Shelter", 'String'>
-  readonly address: Prisma.FieldRef<"Shelter", 'String'>
   readonly phone: Prisma.FieldRef<"Shelter", 'String'>
   readonly email: Prisma.FieldRef<"Shelter", 'String'>
   readonly website: Prisma.FieldRef<"Shelter", 'String'>
+  readonly ubicacion: Prisma.FieldRef<"Shelter", 'String'>
+  readonly ciudad: Prisma.FieldRef<"Shelter", 'String'>
+  readonly estado: Prisma.FieldRef<"Shelter", 'String'>
+  readonly facebook: Prisma.FieldRef<"Shelter", 'String'>
+  readonly instagram: Prisma.FieldRef<"Shelter", 'String'>
+  readonly twitter: Prisma.FieldRef<"Shelter", 'String'>
+  readonly aprobado: Prisma.FieldRef<"Shelter", 'Boolean'>
+  readonly status: Prisma.FieldRef<"Shelter", 'ShelterStatus'>
+  readonly logo: Prisma.FieldRef<"Shelter", 'String'>
+  readonly imageUrl: Prisma.FieldRef<"Shelter", 'String'>
   readonly createdAt: Prisma.FieldRef<"Shelter", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Shelter", 'DateTime'>
 }

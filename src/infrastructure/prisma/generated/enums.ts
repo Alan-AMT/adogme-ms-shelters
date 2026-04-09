@@ -9,7 +9,11 @@
 * 🟢 You can import this file directly.
 */
 
+export const ShelterStatus = {
+  pending: 'pending',
+  approved: 'approved',
+  rejected: 'rejected',
+  suspended: 'suspended'
+} as const
 
-
-// This file is empty because there are no enums in the schema.
-export {}
+export type ShelterStatus = (typeof ShelterStatus)[keyof typeof ShelterStatus]

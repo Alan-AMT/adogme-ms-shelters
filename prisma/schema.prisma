@@ -14,15 +14,33 @@ datasource db {
   schemas  = ["shelters_service"]
 }
 
+enum ShelterStatus {
+  pending
+  approved
+  rejected
+  suspended
+
+  @@schema("shelters_service")
+}
+
 model Shelter {
-  id          String  @id
+  id          String        @id
   userId      String
   name        String
-  description String?
-  address     String?
+  description String?       @db.Text
   phone       String?
   email       String?
   website     String?
+  ubicacion   String?
+  ciudad      String?
+  estado      String?
+  facebook    String?
+  instagram   String?
+  twitter     String?
+  aprobado    Boolean       @default(false)
+  status      ShelterStatus @default(pending)
+  logo        String?
+  imageUrl    String?
 
   createdAt DateTime
   updatedAt DateTime

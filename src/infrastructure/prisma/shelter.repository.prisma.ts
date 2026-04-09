@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { ShelterRepository } from "../../domain/shelter.repository.js";
 import { PrismaService } from "./prisma.service.js";
-import { Shelter } from "../../domain/shelter.entity.js";
+import { Shelter, ShelterStatus } from "../../domain/shelter.entity.js";
 
 @Injectable()
 export class PrismaShelterRepository implements ShelterRepository {
@@ -25,10 +25,19 @@ export class PrismaShelterRepository implements ShelterRepository {
             userId: shelter.userId,
             name: shelter.name,
             description: shelter.description,
-            address: shelter.address,
             phone: shelter.phone,
             email: shelter.email,
             website: shelter.website,
+            ubicacion: shelter.ubicacion,
+            ciudad: shelter.ciudad,
+            estado: shelter.estado,
+            facebook: shelter.facebook,
+            instagram: shelter.instagram,
+            twitter: shelter.twitter,
+            aprobado: shelter.aprobado,
+            status: shelter.status as ShelterStatus,
+            logo: shelter.logo,
+            imageUrl: shelter.imageUrl,
             createdAt: shelter.createdAt,
             updatedAt: shelter.updatedAt,
         });
@@ -41,10 +50,19 @@ export class PrismaShelterRepository implements ShelterRepository {
                 userId: shelter.userId,
                 name: shelter.name,
                 description: shelter.description,
-                address: shelter.address,
                 phone: shelter.phone,
                 email: shelter.email,
                 website: shelter.website,
+                ubicacion: shelter.ubicacion,
+                ciudad: shelter.ciudad,
+                estado: shelter.estado,
+                facebook: shelter.facebook,
+                instagram: shelter.instagram,
+                twitter: shelter.twitter,
+                aprobado: shelter.aprobado,
+                status: shelter.status as any,
+                logo: shelter.logo,
+                imageUrl: shelter.imageUrl,
                 createdAt: shelter.createdAt,
                 updatedAt: shelter.updatedAt,
             },
@@ -58,10 +76,19 @@ export class PrismaShelterRepository implements ShelterRepository {
             userId: shelter.userId,
             name: shelter.name,
             description: shelter.description,
-            address: shelter.address,
             phone: shelter.phone,
             email: shelter.email,
             website: shelter.website,
+            ubicacion: shelter.ubicacion,
+            ciudad: shelter.ciudad,
+            estado: shelter.estado,
+            facebook: shelter.facebook,
+            instagram: shelter.instagram,
+            twitter: shelter.twitter,
+            aprobado: shelter.aprobado,
+            status: shelter.status as ShelterStatus,
+            logo: shelter.logo,
+            imageUrl: shelter.imageUrl,
             createdAt: shelter.createdAt,
             updatedAt: shelter.updatedAt,
         }))
