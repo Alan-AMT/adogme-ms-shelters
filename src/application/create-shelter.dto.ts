@@ -6,8 +6,15 @@ export class CreateShelterDto {
     @IsString()
     name: string;
     description?: string;
-    address?: string;
     phone?: string;
     email?: string;
     website?: string;
+    ubicacion?: string;
+    ciudad?: string;
+    estado?: string;
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+    logo?: string;
+    imageUrl?: string;
 }
