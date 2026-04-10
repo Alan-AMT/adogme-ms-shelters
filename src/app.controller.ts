@@ -7,8 +7,8 @@ import { User } from './infrastructure/security/user.decorator.js';
 import { Roles } from './infrastructure/security/roles.decorator.js';
 import { UserAuthorizationGuard } from './infrastructure/security/user.authorization.guard.js';
 
+@Controller('shelters-ms')
 @UsePipes(new ValidationPipe({ transform: true }))
-@Controller()
 export class AppController {
   constructor(private readonly sheltersService: SheltersService) {}
 
@@ -19,7 +19,9 @@ export class AppController {
     return this.sheltersService.getShelterById(id);
   }
 
+  @UseGuards(UserAuthorizationGuard)
   @Post("shelter")
+  @Roles('SHELTER')
   async createShelter(
     @Body() createShelterDto: CreateShelterDto,
   ): Promise<Shelter> {
@@ -32,8 +34,8 @@ export class AppController {
   }
 
   @UseGuards(UserAuthorizationGuard)
-  @Roles('SHELTER')
   @Put("shelter/:id")
+  @Roles('SHELTER')
   async updateShelter(
     @Param("id") id: string,
     @Body() updateShelterDto: UpdateShelterDto,
