@@ -26,66 +26,66 @@ export type AggregateShelter = {
 
 export type ShelterMinAggregateOutputType = {
   id: string | null
-  userId: string | null
+  userOwnerId: string | null
   name: string | null
   description: string | null
   phone: string | null
   email: string | null
   website: string | null
-  ubicacion: string | null
-  ciudad: string | null
-  estado: string | null
+  municipality: string | null
+  fullAddress: string | null
+  schedule: string | null
   facebook: string | null
   instagram: string | null
   twitter: string | null
-  aprobado: boolean | null
-  status: $Enums.ShelterStatus | null
   logo: string | null
   imageUrl: string | null
+  approved: boolean | null
+  status: $Enums.ShelterStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
 
 export type ShelterMaxAggregateOutputType = {
   id: string | null
-  userId: string | null
+  userOwnerId: string | null
   name: string | null
   description: string | null
   phone: string | null
   email: string | null
   website: string | null
-  ubicacion: string | null
-  ciudad: string | null
-  estado: string | null
+  municipality: string | null
+  fullAddress: string | null
+  schedule: string | null
   facebook: string | null
   instagram: string | null
   twitter: string | null
-  aprobado: boolean | null
-  status: $Enums.ShelterStatus | null
   logo: string | null
   imageUrl: string | null
+  approved: boolean | null
+  status: $Enums.ShelterStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
 
 export type ShelterCountAggregateOutputType = {
   id: number
-  userId: number
+  userOwnerId: number
   name: number
   description: number
   phone: number
   email: number
   website: number
-  ubicacion: number
-  ciudad: number
-  estado: number
+  municipality: number
+  fullAddress: number
+  schedule: number
   facebook: number
   instagram: number
   twitter: number
-  aprobado: number
-  status: number
   logo: number
   imageUrl: number
+  approved: number
+  status: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -94,66 +94,66 @@ export type ShelterCountAggregateOutputType = {
 
 export type ShelterMinAggregateInputType = {
   id?: true
-  userId?: true
+  userOwnerId?: true
   name?: true
   description?: true
   phone?: true
   email?: true
   website?: true
-  ubicacion?: true
-  ciudad?: true
-  estado?: true
+  municipality?: true
+  fullAddress?: true
+  schedule?: true
   facebook?: true
   instagram?: true
   twitter?: true
-  aprobado?: true
-  status?: true
   logo?: true
   imageUrl?: true
+  approved?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
 }
 
 export type ShelterMaxAggregateInputType = {
   id?: true
-  userId?: true
+  userOwnerId?: true
   name?: true
   description?: true
   phone?: true
   email?: true
   website?: true
-  ubicacion?: true
-  ciudad?: true
-  estado?: true
+  municipality?: true
+  fullAddress?: true
+  schedule?: true
   facebook?: true
   instagram?: true
   twitter?: true
-  aprobado?: true
-  status?: true
   logo?: true
   imageUrl?: true
+  approved?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
 }
 
 export type ShelterCountAggregateInputType = {
   id?: true
-  userId?: true
+  userOwnerId?: true
   name?: true
   description?: true
   phone?: true
   email?: true
   website?: true
-  ubicacion?: true
-  ciudad?: true
-  estado?: true
+  municipality?: true
+  fullAddress?: true
+  schedule?: true
   facebook?: true
   instagram?: true
   twitter?: true
-  aprobado?: true
-  status?: true
   logo?: true
   imageUrl?: true
+  approved?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -233,22 +233,22 @@ export type ShelterGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type ShelterGroupByOutputType = {
   id: string
-  userId: string
+  userOwnerId: string
   name: string
   description: string | null
   phone: string | null
   email: string | null
   website: string | null
-  ubicacion: string | null
-  ciudad: string | null
-  estado: string | null
+  municipality: string | null
+  fullAddress: string | null
+  schedule: string | null
   facebook: string | null
   instagram: string | null
   twitter: string | null
-  aprobado: boolean
-  status: $Enums.ShelterStatus
   logo: string | null
   imageUrl: string | null
+  approved: boolean
+  status: $Enums.ShelterStatus
   createdAt: Date
   updatedAt: Date
   _count: ShelterCountAggregateOutputType | null
@@ -276,44 +276,44 @@ export type ShelterWhereInput = {
   OR?: Prisma.ShelterWhereInput[]
   NOT?: Prisma.ShelterWhereInput | Prisma.ShelterWhereInput[]
   id?: Prisma.StringFilter<"Shelter"> | string
-  userId?: Prisma.StringFilter<"Shelter"> | string
+  userOwnerId?: Prisma.StringFilter<"Shelter"> | string
   name?: Prisma.StringFilter<"Shelter"> | string
   description?: Prisma.StringNullableFilter<"Shelter"> | string | null
   phone?: Prisma.StringNullableFilter<"Shelter"> | string | null
   email?: Prisma.StringNullableFilter<"Shelter"> | string | null
   website?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  ubicacion?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  ciudad?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  estado?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  municipality?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  fullAddress?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  schedule?: Prisma.StringNullableFilter<"Shelter"> | string | null
   facebook?: Prisma.StringNullableFilter<"Shelter"> | string | null
   instagram?: Prisma.StringNullableFilter<"Shelter"> | string | null
   twitter?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  aprobado?: Prisma.BoolFilter<"Shelter"> | boolean
-  status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
   logo?: Prisma.StringNullableFilter<"Shelter"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  approved?: Prisma.BoolFilter<"Shelter"> | boolean
+  status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
 }
 
 export type ShelterOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  userOwnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   website?: Prisma.SortOrderInput | Prisma.SortOrder
-  ubicacion?: Prisma.SortOrderInput | Prisma.SortOrder
-  ciudad?: Prisma.SortOrderInput | Prisma.SortOrder
-  estado?: Prisma.SortOrderInput | Prisma.SortOrder
+  municipality?: Prisma.SortOrderInput | Prisma.SortOrder
+  fullAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  schedule?: Prisma.SortOrderInput | Prisma.SortOrder
   facebook?: Prisma.SortOrderInput | Prisma.SortOrder
   instagram?: Prisma.SortOrderInput | Prisma.SortOrder
   twitter?: Prisma.SortOrderInput | Prisma.SortOrder
-  aprobado?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  approved?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -323,44 +323,44 @@ export type ShelterWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ShelterWhereInput | Prisma.ShelterWhereInput[]
   OR?: Prisma.ShelterWhereInput[]
   NOT?: Prisma.ShelterWhereInput | Prisma.ShelterWhereInput[]
-  userId?: Prisma.StringFilter<"Shelter"> | string
+  userOwnerId?: Prisma.StringFilter<"Shelter"> | string
   name?: Prisma.StringFilter<"Shelter"> | string
   description?: Prisma.StringNullableFilter<"Shelter"> | string | null
   phone?: Prisma.StringNullableFilter<"Shelter"> | string | null
   email?: Prisma.StringNullableFilter<"Shelter"> | string | null
   website?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  ubicacion?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  ciudad?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  estado?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  municipality?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  fullAddress?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  schedule?: Prisma.StringNullableFilter<"Shelter"> | string | null
   facebook?: Prisma.StringNullableFilter<"Shelter"> | string | null
   instagram?: Prisma.StringNullableFilter<"Shelter"> | string | null
   twitter?: Prisma.StringNullableFilter<"Shelter"> | string | null
-  aprobado?: Prisma.BoolFilter<"Shelter"> | boolean
-  status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
   logo?: Prisma.StringNullableFilter<"Shelter"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  approved?: Prisma.BoolFilter<"Shelter"> | boolean
+  status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
 }, "id">
 
 export type ShelterOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  userOwnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   website?: Prisma.SortOrderInput | Prisma.SortOrder
-  ubicacion?: Prisma.SortOrderInput | Prisma.SortOrder
-  ciudad?: Prisma.SortOrderInput | Prisma.SortOrder
-  estado?: Prisma.SortOrderInput | Prisma.SortOrder
+  municipality?: Prisma.SortOrderInput | Prisma.SortOrder
+  fullAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  schedule?: Prisma.SortOrderInput | Prisma.SortOrder
   facebook?: Prisma.SortOrderInput | Prisma.SortOrder
   instagram?: Prisma.SortOrderInput | Prisma.SortOrder
   twitter?: Prisma.SortOrderInput | Prisma.SortOrder
-  aprobado?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  approved?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ShelterCountOrderByAggregateInput
@@ -373,242 +373,242 @@ export type ShelterScalarWhereWithAggregatesInput = {
   OR?: Prisma.ShelterScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ShelterScalarWhereWithAggregatesInput | Prisma.ShelterScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Shelter"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"Shelter"> | string
+  userOwnerId?: Prisma.StringWithAggregatesFilter<"Shelter"> | string
   name?: Prisma.StringWithAggregatesFilter<"Shelter"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   phone?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   email?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   website?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
-  ubicacion?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
-  ciudad?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
-  estado?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  municipality?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  fullAddress?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  schedule?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   facebook?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   instagram?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   twitter?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
-  aprobado?: Prisma.BoolWithAggregatesFilter<"Shelter"> | boolean
-  status?: Prisma.EnumShelterStatusWithAggregatesFilter<"Shelter"> | $Enums.ShelterStatus
   logo?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  approved?: Prisma.BoolWithAggregatesFilter<"Shelter"> | boolean
+  status?: Prisma.EnumShelterStatusWithAggregatesFilter<"Shelter"> | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Shelter"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Shelter"> | Date | string
 }
 
 export type ShelterCreateInput = {
   id: string
-  userId: string
+  userOwnerId: string
   name: string
   description?: string | null
   phone?: string | null
   email?: string | null
   website?: string | null
-  ubicacion?: string | null
-  ciudad?: string | null
-  estado?: string | null
+  municipality?: string | null
+  fullAddress?: string | null
+  schedule?: string | null
   facebook?: string | null
   instagram?: string | null
   twitter?: string | null
-  aprobado?: boolean
-  status?: $Enums.ShelterStatus
   logo?: string | null
   imageUrl?: string | null
+  approved?: boolean
+  status?: $Enums.ShelterStatus
   createdAt: Date | string
   updatedAt: Date | string
 }
 
 export type ShelterUncheckedCreateInput = {
   id: string
-  userId: string
+  userOwnerId: string
   name: string
   description?: string | null
   phone?: string | null
   email?: string | null
   website?: string | null
-  ubicacion?: string | null
-  ciudad?: string | null
-  estado?: string | null
+  municipality?: string | null
+  fullAddress?: string | null
+  schedule?: string | null
   facebook?: string | null
   instagram?: string | null
   twitter?: string | null
-  aprobado?: boolean
-  status?: $Enums.ShelterStatus
   logo?: string | null
   imageUrl?: string | null
+  approved?: boolean
+  status?: $Enums.ShelterStatus
   createdAt: Date | string
   updatedAt: Date | string
 }
 
 export type ShelterUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  userOwnerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  municipality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fullAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schedule?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ShelterUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  userOwnerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  municipality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fullAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schedule?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ShelterCreateManyInput = {
   id: string
-  userId: string
+  userOwnerId: string
   name: string
   description?: string | null
   phone?: string | null
   email?: string | null
   website?: string | null
-  ubicacion?: string | null
-  ciudad?: string | null
-  estado?: string | null
+  municipality?: string | null
+  fullAddress?: string | null
+  schedule?: string | null
   facebook?: string | null
   instagram?: string | null
   twitter?: string | null
-  aprobado?: boolean
-  status?: $Enums.ShelterStatus
   logo?: string | null
   imageUrl?: string | null
+  approved?: boolean
+  status?: $Enums.ShelterStatus
   createdAt: Date | string
   updatedAt: Date | string
 }
 
 export type ShelterUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  userOwnerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  municipality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fullAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schedule?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ShelterUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  userOwnerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ubicacion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ciudad?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  estado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  municipality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fullAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schedule?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebook?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  aprobado?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ShelterCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  userOwnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   website?: Prisma.SortOrder
-  ubicacion?: Prisma.SortOrder
-  ciudad?: Prisma.SortOrder
-  estado?: Prisma.SortOrder
+  municipality?: Prisma.SortOrder
+  fullAddress?: Prisma.SortOrder
+  schedule?: Prisma.SortOrder
   facebook?: Prisma.SortOrder
   instagram?: Prisma.SortOrder
   twitter?: Prisma.SortOrder
-  aprobado?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  approved?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type ShelterMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  userOwnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   website?: Prisma.SortOrder
-  ubicacion?: Prisma.SortOrder
-  ciudad?: Prisma.SortOrder
-  estado?: Prisma.SortOrder
+  municipality?: Prisma.SortOrder
+  fullAddress?: Prisma.SortOrder
+  schedule?: Prisma.SortOrder
   facebook?: Prisma.SortOrder
   instagram?: Prisma.SortOrder
   twitter?: Prisma.SortOrder
-  aprobado?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  approved?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type ShelterMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  userOwnerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   email?: Prisma.SortOrder
   website?: Prisma.SortOrder
-  ubicacion?: Prisma.SortOrder
-  ciudad?: Prisma.SortOrder
-  estado?: Prisma.SortOrder
+  municipality?: Prisma.SortOrder
+  fullAddress?: Prisma.SortOrder
+  schedule?: Prisma.SortOrder
   facebook?: Prisma.SortOrder
   instagram?: Prisma.SortOrder
   twitter?: Prisma.SortOrder
-  aprobado?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  approved?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -637,115 +637,115 @@ export type DateTimeFieldUpdateOperationsInput = {
 
 export type ShelterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  userId?: boolean
+  userOwnerId?: boolean
   name?: boolean
   description?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
-  ubicacion?: boolean
-  ciudad?: boolean
-  estado?: boolean
+  municipality?: boolean
+  fullAddress?: boolean
+  schedule?: boolean
   facebook?: boolean
   instagram?: boolean
   twitter?: boolean
-  aprobado?: boolean
-  status?: boolean
   logo?: boolean
   imageUrl?: boolean
+  approved?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["shelter"]>
 
 export type ShelterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  userId?: boolean
+  userOwnerId?: boolean
   name?: boolean
   description?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
-  ubicacion?: boolean
-  ciudad?: boolean
-  estado?: boolean
+  municipality?: boolean
+  fullAddress?: boolean
+  schedule?: boolean
   facebook?: boolean
   instagram?: boolean
   twitter?: boolean
-  aprobado?: boolean
-  status?: boolean
   logo?: boolean
   imageUrl?: boolean
+  approved?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["shelter"]>
 
 export type ShelterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  userId?: boolean
+  userOwnerId?: boolean
   name?: boolean
   description?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
-  ubicacion?: boolean
-  ciudad?: boolean
-  estado?: boolean
+  municipality?: boolean
+  fullAddress?: boolean
+  schedule?: boolean
   facebook?: boolean
   instagram?: boolean
   twitter?: boolean
-  aprobado?: boolean
-  status?: boolean
   logo?: boolean
   imageUrl?: boolean
+  approved?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["shelter"]>
 
 export type ShelterSelectScalar = {
   id?: boolean
-  userId?: boolean
+  userOwnerId?: boolean
   name?: boolean
   description?: boolean
   phone?: boolean
   email?: boolean
   website?: boolean
-  ubicacion?: boolean
-  ciudad?: boolean
-  estado?: boolean
+  municipality?: boolean
+  fullAddress?: boolean
+  schedule?: boolean
   facebook?: boolean
   instagram?: boolean
   twitter?: boolean
-  aprobado?: boolean
-  status?: boolean
   logo?: boolean
   imageUrl?: boolean
+  approved?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ShelterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "description" | "phone" | "email" | "website" | "ubicacion" | "ciudad" | "estado" | "facebook" | "instagram" | "twitter" | "aprobado" | "status" | "logo" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["shelter"]>
+export type ShelterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userOwnerId" | "name" | "description" | "phone" | "email" | "website" | "municipality" | "fullAddress" | "schedule" | "facebook" | "instagram" | "twitter" | "logo" | "imageUrl" | "approved" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["shelter"]>
 
 export type $ShelterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Shelter"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    userId: string
+    userOwnerId: string
     name: string
     description: string | null
     phone: string | null
     email: string | null
     website: string | null
-    ubicacion: string | null
-    ciudad: string | null
-    estado: string | null
+    municipality: string | null
+    fullAddress: string | null
+    schedule: string | null
     facebook: string | null
     instagram: string | null
     twitter: string | null
-    aprobado: boolean
-    status: $Enums.ShelterStatus
     logo: string | null
     imageUrl: string | null
+    approved: boolean
+    status: $Enums.ShelterStatus
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["shelter"]>
@@ -1172,22 +1172,22 @@ export interface Prisma__ShelterClient<T, Null = never, ExtArgs extends runtime.
  */
 export interface ShelterFieldRefs {
   readonly id: Prisma.FieldRef<"Shelter", 'String'>
-  readonly userId: Prisma.FieldRef<"Shelter", 'String'>
+  readonly userOwnerId: Prisma.FieldRef<"Shelter", 'String'>
   readonly name: Prisma.FieldRef<"Shelter", 'String'>
   readonly description: Prisma.FieldRef<"Shelter", 'String'>
   readonly phone: Prisma.FieldRef<"Shelter", 'String'>
   readonly email: Prisma.FieldRef<"Shelter", 'String'>
   readonly website: Prisma.FieldRef<"Shelter", 'String'>
-  readonly ubicacion: Prisma.FieldRef<"Shelter", 'String'>
-  readonly ciudad: Prisma.FieldRef<"Shelter", 'String'>
-  readonly estado: Prisma.FieldRef<"Shelter", 'String'>
+  readonly municipality: Prisma.FieldRef<"Shelter", 'String'>
+  readonly fullAddress: Prisma.FieldRef<"Shelter", 'String'>
+  readonly schedule: Prisma.FieldRef<"Shelter", 'String'>
   readonly facebook: Prisma.FieldRef<"Shelter", 'String'>
   readonly instagram: Prisma.FieldRef<"Shelter", 'String'>
   readonly twitter: Prisma.FieldRef<"Shelter", 'String'>
-  readonly aprobado: Prisma.FieldRef<"Shelter", 'Boolean'>
-  readonly status: Prisma.FieldRef<"Shelter", 'ShelterStatus'>
   readonly logo: Prisma.FieldRef<"Shelter", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Shelter", 'String'>
+  readonly approved: Prisma.FieldRef<"Shelter", 'Boolean'>
+  readonly status: Prisma.FieldRef<"Shelter", 'ShelterStatus'>
   readonly createdAt: Prisma.FieldRef<"Shelter", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Shelter", 'DateTime'>
 }

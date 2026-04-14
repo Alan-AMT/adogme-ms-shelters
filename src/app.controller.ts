@@ -21,7 +21,7 @@ export class AppController {
 
   @UseGuards(UserAuthorizationGuard)
   @Post("shelter")
-  @Roles('SHELTER')
+  @Roles('shelter')
   async createShelter(
     @Body() createShelterDto: CreateShelterDto,
   ): Promise<Shelter> {
@@ -35,7 +35,7 @@ export class AppController {
 
   @UseGuards(UserAuthorizationGuard)
   @Put("shelter/:id")
-  @Roles('SHELTER')
+  @Roles('shelter')
   async updateShelter(
     @Param("id") id: string,
     @Body() updateShelterDto: UpdateShelterDto,

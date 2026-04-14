@@ -519,22 +519,22 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const ShelterScalarFieldEnum = {
   id: 'id',
-  userId: 'userId',
+  userOwnerId: 'userOwnerId',
   name: 'name',
   description: 'description',
   phone: 'phone',
   email: 'email',
   website: 'website',
-  ubicacion: 'ubicacion',
-  ciudad: 'ciudad',
-  estado: 'estado',
+  municipality: 'municipality',
+  fullAddress: 'fullAddress',
+  schedule: 'schedule',
   facebook: 'facebook',
   instagram: 'instagram',
   twitter: 'twitter',
-  aprobado: 'aprobado',
-  status: 'status',
   logo: 'logo',
   imageUrl: 'imageUrl',
+  approved: 'approved',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -23,15 +23,15 @@ export class UpdateShelterDto {
     
     @IsOptional()
     @IsString()
-    ubicacion?: string;
+    municipality?: string;
     
     @IsOptional()
     @IsString()
-    ciudad?: string;
+    fullAddress?: string;
     
     @IsOptional()
     @IsString()
-    estado?: string;
+    schedule?: string;
     
     @IsOptional()
     @IsString()

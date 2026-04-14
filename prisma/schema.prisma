@@ -24,23 +24,24 @@ enum ShelterStatus {
 }
 
 model Shelter {
-  id          String        @id
-  userId      String
-  name        String
-  description String?       @db.Text
-  phone       String?
-  email       String?
-  website     String?
-  ubicacion   String?
-  ciudad      String?
-  estado      String?
-  facebook    String?
-  instagram   String?
-  twitter     String?
-  aprobado    Boolean       @default(false)
-  status      ShelterStatus @default(pending)
-  logo        String?
-  imageUrl    String?
+  id           String  @id
+  userOwnerId  String
+  name         String
+  description  String? @db.Text
+  phone        String?
+  email        String?
+  website      String?
+  municipality String?
+  fullAddress  String?
+  schedule     String?
+  facebook     String?
+  instagram    String?
+  twitter      String?
+  logo         String?
+  imageUrl     String?
+
+  approved Boolean       @default(false)
+  status   ShelterStatus @default(pending)
 
   createdAt DateTime
   updatedAt DateTime
