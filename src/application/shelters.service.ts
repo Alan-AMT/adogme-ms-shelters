@@ -20,19 +20,19 @@ export class SheltersService {
         const shelterToCreate = Shelter.create(
             {
                 id: uuidv4(),
-                userId: createShelterDto.userId,
+                userOwnerId: createShelterDto.userOwnerId,
                 name: createShelterDto.name,
                 description: createShelterDto.description ?? null,
                 phone: createShelterDto.phone ?? null,
                 email: createShelterDto.email ?? null,
                 website: createShelterDto.website ?? null,
-                ubicacion: createShelterDto.ubicacion ?? null,
-                ciudad: createShelterDto.ciudad ?? null,
-                estado: createShelterDto.estado ?? null,
+                municipality: createShelterDto.municipality ?? null,
+                fullAddress: createShelterDto.fullAddress ?? null,
+                schedule: createShelterDto.schedule ?? null,
                 facebook: createShelterDto.facebook ?? null,
                 instagram: createShelterDto.instagram ?? null,
                 twitter: createShelterDto.twitter ?? null,
-                aprobado: false,
+                approved: false,
                 status: 'pending',
                 logo: createShelterDto.logo ?? null,
                 imageUrl: createShelterDto.imageUrl ?? null,
@@ -50,24 +50,24 @@ export class SheltersService {
 
     async updateShelter(id: string, updateShelterDto: UpdateShelterDto, userId: string): Promise<Shelter> {
         const existingShelter = await this.shelterRepository.findById(id);
-        if (existingShelter.userId !== userId) {
+        if (existingShelter.userOwnerId !== userId) {
             throw new Error('Unauthorized');
         }
         const updatedShelter = Shelter.create({
             id: existingShelter.id,
-            userId: existingShelter.userId,
+            userOwnerId: existingShelter.userOwnerId,
             name: updateShelterDto.name ?? existingShelter.name,
             description: updateShelterDto.description !== undefined ? updateShelterDto.description : existingShelter.description,
             phone: updateShelterDto.phone !== undefined ? updateShelterDto.phone : existingShelter.phone,
             email: updateShelterDto.email !== undefined ? updateShelterDto.email : existingShelter.email,
             website: updateShelterDto.website !== undefined ? updateShelterDto.website : existingShelter.website,
-            ubicacion: updateShelterDto.ubicacion !== undefined ? updateShelterDto.ubicacion : existingShelter.ubicacion,
-            ciudad: updateShelterDto.ciudad !== undefined ? updateShelterDto.ciudad : existingShelter.ciudad,
-            estado: updateShelterDto.estado !== undefined ? updateShelterDto.estado : existingShelter.estado,
+            municipality: updateShelterDto.municipality !== undefined ? updateShelterDto.municipality : existingShelter.municipality,
+            fullAddress: updateShelterDto.fullAddress !== undefined ? updateShelterDto.fullAddress : existingShelter.fullAddress,
+            schedule: updateShelterDto.schedule !== undefined ? updateShelterDto.schedule : existingShelter.schedule,
             facebook: updateShelterDto.facebook !== undefined ? updateShelterDto.facebook : existingShelter.facebook,
             instagram: updateShelterDto.instagram !== undefined ? updateShelterDto.instagram : existingShelter.instagram,
             twitter: updateShelterDto.twitter !== undefined ? updateShelterDto.twitter : existingShelter.twitter,
-            aprobado: existingShelter.aprobado,
+            approved: existingShelter.approved,
             status: existingShelter.status,
             logo: updateShelterDto.logo !== undefined ? updateShelterDto.logo : existingShelter.logo,
             imageUrl: updateShelterDto.imageUrl !== undefined ? updateShelterDto.imageUrl : existingShelter.imageUrl,
