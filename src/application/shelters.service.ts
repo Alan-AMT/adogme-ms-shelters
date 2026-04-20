@@ -15,6 +15,10 @@ export class SheltersService {
         return this.shelterRepository.findById(id);
     }
 
+    async getShelterByUserOwnerId(userOwnerId: string): Promise<Shelter> {
+        return await this.shelterRepository.findByUserOwnerId(userOwnerId);
+    }
+
     async createShelter(createShelterDto: CreateShelterDto): Promise<Shelter> {
         const date = new Date();
         const shelterToCreate = Shelter.create(

@@ -20,6 +20,15 @@ export class AppController {
   }
 
   @UseGuards(UserAuthorizationGuard)
+  @Roles('shelter')
+  @Get("shelter/user/:userOwnerId")
+  async getShelterByUserOwnerId(
+    @Param("userOwnerId") userOwnerId: string,
+  ): Promise<Shelter> {
+    return this.sheltersService.getShelterByUserOwnerId(userOwnerId);
+  }
+
+  @UseGuards(UserAuthorizationGuard)
   @Post("shelter")
   @Roles('shelter')
   async createShelter(
