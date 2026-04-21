@@ -533,6 +533,7 @@ export const ShelterScalarFieldEnum = {
   twitter: 'twitter',
   logo: 'logo',
   imageUrl: 'imageUrl',
+  adoptionFee: 'adoptionFee',
   approved: 'approved',
   status: 'status',
   createdAt: 'createdAt',
@@ -583,6 +584,20 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 

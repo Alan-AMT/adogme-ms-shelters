@@ -1,4 +1,4 @@
-import { IsString, IsOptional } from 'class-validator';
+import { IsString, IsOptional, IsNumber } from 'class-validator';
 
 export class CreateShelterDto {
     @IsString()
@@ -7,38 +7,41 @@ export class CreateShelterDto {
     name: string;
     @IsOptional()
     @IsString()
-    description?: string;
+    description: string | null = null;
     @IsOptional()
     @IsString()
-    phone?: string;
+    phone: string | null = null;
     @IsOptional()
     @IsString()
-    email?: string;
+    email: string | null = null;
     @IsOptional()
     @IsString()
-    website?: string;
+    website: string | null = null;
     @IsOptional()
     @IsString()
-    municipality?: string;
+    municipality: string | null = null;
     @IsOptional()
     @IsString()
-    fullAddress?: string;
+    fullAddress: string | null = null;
     @IsOptional()
     @IsString()
-    schedule?: string;
+    schedule: string | null = null;
     @IsOptional()
     @IsString()
-    facebook?: string;
+    facebook: string | null = null;
     @IsOptional()
     @IsString()
-    instagram?: string;
+    instagram: string | null = null;
     @IsOptional()
     @IsString()
-    twitter?: string;
+    twitter: string | null = null;
     @IsOptional()
     @IsString()
-    logo?: string;
+    logo: string | null = null;
     @IsOptional()
     @IsString()
-    imageUrl?: string;
+    imageUrl: string | null = null;
+    @IsOptional()
+    @IsNumber()
+    adoptionFee: number | null = null;
 }

@@ -86,6 +86,7 @@ export const ShelterScalarFieldEnum = {
   twitter: 'twitter',
   logo: 'logo',
   imageUrl: 'imageUrl',
+  adoptionFee: 'adoptionFee',
   approved: 'approved',
   status: 'status',
   createdAt: 'createdAt',

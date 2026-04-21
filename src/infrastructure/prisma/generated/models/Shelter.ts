@@ -20,8 +20,18 @@ export type ShelterModel = runtime.Types.Result.DefaultSelection<Prisma.$Shelter
 
 export type AggregateShelter = {
   _count: ShelterCountAggregateOutputType | null
+  _avg: ShelterAvgAggregateOutputType | null
+  _sum: ShelterSumAggregateOutputType | null
   _min: ShelterMinAggregateOutputType | null
   _max: ShelterMaxAggregateOutputType | null
+}
+
+export type ShelterAvgAggregateOutputType = {
+  adoptionFee: number | null
+}
+
+export type ShelterSumAggregateOutputType = {
+  adoptionFee: number | null
 }
 
 export type ShelterMinAggregateOutputType = {
@@ -40,6 +50,7 @@ export type ShelterMinAggregateOutputType = {
   twitter: string | null
   logo: string | null
   imageUrl: string | null
+  adoptionFee: number | null
   approved: boolean | null
   status: $Enums.ShelterStatus | null
   createdAt: Date | null
@@ -62,6 +73,7 @@ export type ShelterMaxAggregateOutputType = {
   twitter: string | null
   logo: string | null
   imageUrl: string | null
+  adoptionFee: number | null
   approved: boolean | null
   status: $Enums.ShelterStatus | null
   createdAt: Date | null
@@ -84,6 +96,7 @@ export type ShelterCountAggregateOutputType = {
   twitter: number
   logo: number
   imageUrl: number
+  adoptionFee: number
   approved: number
   status: number
   createdAt: number
@@ -91,6 +104,14 @@ export type ShelterCountAggregateOutputType = {
   _all: number
 }
 
+
+export type ShelterAvgAggregateInputType = {
+  adoptionFee?: true
+}
+
+export type ShelterSumAggregateInputType = {
+  adoptionFee?: true
+}
 
 export type ShelterMinAggregateInputType = {
   id?: true
@@ -108,6 +129,7 @@ export type ShelterMinAggregateInputType = {
   twitter?: true
   logo?: true
   imageUrl?: true
+  adoptionFee?: true
   approved?: true
   status?: true
   createdAt?: true
@@ -130,6 +152,7 @@ export type ShelterMaxAggregateInputType = {
   twitter?: true
   logo?: true
   imageUrl?: true
+  adoptionFee?: true
   approved?: true
   status?: true
   createdAt?: true
@@ -152,6 +175,7 @@ export type ShelterCountAggregateInputType = {
   twitter?: true
   logo?: true
   imageUrl?: true
+  adoptionFee?: true
   approved?: true
   status?: true
   createdAt?: true
@@ -197,6 +221,18 @@ export type ShelterAggregateArgs<ExtArgs extends runtime.Types.Extensions.Intern
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: ShelterAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: ShelterSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: ShelterMinAggregateInputType
@@ -227,6 +263,8 @@ export type ShelterGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   _count?: ShelterCountAggregateInputType | true
+  _avg?: ShelterAvgAggregateInputType
+  _sum?: ShelterSumAggregateInputType
   _min?: ShelterMinAggregateInputType
   _max?: ShelterMaxAggregateInputType
 }
@@ -247,11 +285,14 @@ export type ShelterGroupByOutputType = {
   twitter: string | null
   logo: string | null
   imageUrl: string | null
+  adoptionFee: number | null
   approved: boolean
   status: $Enums.ShelterStatus
   createdAt: Date
   updatedAt: Date
   _count: ShelterCountAggregateOutputType | null
+  _avg: ShelterAvgAggregateOutputType | null
+  _sum: ShelterSumAggregateOutputType | null
   _min: ShelterMinAggregateOutputType | null
   _max: ShelterMaxAggregateOutputType | null
 }
@@ -290,6 +331,7 @@ export type ShelterWhereInput = {
   twitter?: Prisma.StringNullableFilter<"Shelter"> | string | null
   logo?: Prisma.StringNullableFilter<"Shelter"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  adoptionFee?: Prisma.FloatNullableFilter<"Shelter"> | number | null
   approved?: Prisma.BoolFilter<"Shelter"> | boolean
   status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
@@ -312,6 +354,7 @@ export type ShelterOrderByWithRelationInput = {
   twitter?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  adoptionFee?: Prisma.SortOrderInput | Prisma.SortOrder
   approved?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -337,6 +380,7 @@ export type ShelterWhereUniqueInput = Prisma.AtLeast<{
   twitter?: Prisma.StringNullableFilter<"Shelter"> | string | null
   logo?: Prisma.StringNullableFilter<"Shelter"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Shelter"> | string | null
+  adoptionFee?: Prisma.FloatNullableFilter<"Shelter"> | number | null
   approved?: Prisma.BoolFilter<"Shelter"> | boolean
   status?: Prisma.EnumShelterStatusFilter<"Shelter"> | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFilter<"Shelter"> | Date | string
@@ -359,13 +403,16 @@ export type ShelterOrderByWithAggregationInput = {
   twitter?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  adoptionFee?: Prisma.SortOrderInput | Prisma.SortOrder
   approved?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ShelterCountOrderByAggregateInput
+  _avg?: Prisma.ShelterAvgOrderByAggregateInput
   _max?: Prisma.ShelterMaxOrderByAggregateInput
   _min?: Prisma.ShelterMinOrderByAggregateInput
+  _sum?: Prisma.ShelterSumOrderByAggregateInput
 }
 
 export type ShelterScalarWhereWithAggregatesInput = {
@@ -387,6 +434,7 @@ export type ShelterScalarWhereWithAggregatesInput = {
   twitter?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   logo?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Shelter"> | string | null
+  adoptionFee?: Prisma.FloatNullableWithAggregatesFilter<"Shelter"> | number | null
   approved?: Prisma.BoolWithAggregatesFilter<"Shelter"> | boolean
   status?: Prisma.EnumShelterStatusWithAggregatesFilter<"Shelter"> | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Shelter"> | Date | string
@@ -409,6 +457,7 @@ export type ShelterCreateInput = {
   twitter?: string | null
   logo?: string | null
   imageUrl?: string | null
+  adoptionFee?: number | null
   approved?: boolean
   status?: $Enums.ShelterStatus
   createdAt: Date | string
@@ -431,6 +480,7 @@ export type ShelterUncheckedCreateInput = {
   twitter?: string | null
   logo?: string | null
   imageUrl?: string | null
+  adoptionFee?: number | null
   approved?: boolean
   status?: $Enums.ShelterStatus
   createdAt: Date | string
@@ -453,6 +503,7 @@ export type ShelterUpdateInput = {
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  adoptionFee?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -475,6 +526,7 @@ export type ShelterUncheckedUpdateInput = {
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  adoptionFee?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -497,6 +549,7 @@ export type ShelterCreateManyInput = {
   twitter?: string | null
   logo?: string | null
   imageUrl?: string | null
+  adoptionFee?: number | null
   approved?: boolean
   status?: $Enums.ShelterStatus
   createdAt: Date | string
@@ -519,6 +572,7 @@ export type ShelterUpdateManyMutationInput = {
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  adoptionFee?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -541,6 +595,7 @@ export type ShelterUncheckedUpdateManyInput = {
   twitter?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  adoptionFee?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   status?: Prisma.EnumShelterStatusFieldUpdateOperationsInput | $Enums.ShelterStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -563,10 +618,15 @@ export type ShelterCountOrderByAggregateInput = {
   twitter?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  adoptionFee?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type ShelterAvgOrderByAggregateInput = {
+  adoptionFee?: Prisma.SortOrder
 }
 
 export type ShelterMaxOrderByAggregateInput = {
@@ -585,6 +645,7 @@ export type ShelterMaxOrderByAggregateInput = {
   twitter?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  adoptionFee?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -607,10 +668,15 @@ export type ShelterMinOrderByAggregateInput = {
   twitter?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  adoptionFee?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type ShelterSumOrderByAggregateInput = {
+  adoptionFee?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -619,6 +685,14 @@ export type StringFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type NullableFloatFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type BoolFieldUpdateOperationsInput = {
@@ -651,6 +725,7 @@ export type ShelterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   twitter?: boolean
   logo?: boolean
   imageUrl?: boolean
+  adoptionFee?: boolean
   approved?: boolean
   status?: boolean
   createdAt?: boolean
@@ -673,6 +748,7 @@ export type ShelterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   twitter?: boolean
   logo?: boolean
   imageUrl?: boolean
+  adoptionFee?: boolean
   approved?: boolean
   status?: boolean
   createdAt?: boolean
@@ -695,6 +771,7 @@ export type ShelterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   twitter?: boolean
   logo?: boolean
   imageUrl?: boolean
+  adoptionFee?: boolean
   approved?: boolean
   status?: boolean
   createdAt?: boolean
@@ -717,13 +794,14 @@ export type ShelterSelectScalar = {
   twitter?: boolean
   logo?: boolean
   imageUrl?: boolean
+  adoptionFee?: boolean
   approved?: boolean
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ShelterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userOwnerId" | "name" | "description" | "phone" | "email" | "website" | "municipality" | "fullAddress" | "schedule" | "facebook" | "instagram" | "twitter" | "logo" | "imageUrl" | "approved" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["shelter"]>
+export type ShelterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userOwnerId" | "name" | "description" | "phone" | "email" | "website" | "municipality" | "fullAddress" | "schedule" | "facebook" | "instagram" | "twitter" | "logo" | "imageUrl" | "adoptionFee" | "approved" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["shelter"]>
 
 export type $ShelterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Shelter"
@@ -744,6 +822,7 @@ export type $ShelterPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     twitter: string | null
     logo: string | null
     imageUrl: string | null
+    adoptionFee: number | null
     approved: boolean
     status: $Enums.ShelterStatus
     createdAt: Date
@@ -1186,6 +1265,7 @@ export interface ShelterFieldRefs {
   readonly twitter: Prisma.FieldRef<"Shelter", 'String'>
   readonly logo: Prisma.FieldRef<"Shelter", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Shelter", 'String'>
+  readonly adoptionFee: Prisma.FieldRef<"Shelter", 'Float'>
   readonly approved: Prisma.FieldRef<"Shelter", 'Boolean'>
   readonly status: Prisma.FieldRef<"Shelter", 'ShelterStatus'>
   readonly createdAt: Prisma.FieldRef<"Shelter", 'DateTime'>

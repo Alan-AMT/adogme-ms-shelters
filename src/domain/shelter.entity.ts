@@ -19,6 +19,7 @@ export class Shelter {
         public readonly status: ShelterStatus,
         public readonly logo: string | null,
         public readonly imageUrl: string | null,
+        public readonly adoptionFee: number | null,
         public readonly createdAt: Date,
         public readonly updatedAt: Date,
     ) { }
@@ -41,6 +42,7 @@ export class Shelter {
         status: ShelterStatus,
         logo: string | null,
         imageUrl: string | null,
+        adoptionFee: number | null,
         createdAt: Date,
         updatedAt: Date,
     }): Shelter {
@@ -62,6 +64,7 @@ export class Shelter {
             shelterData.status,
             shelterData.logo,
             shelterData.imageUrl,
+            shelterData.adoptionFee,
             shelterData.createdAt,
             shelterData.updatedAt,
         );

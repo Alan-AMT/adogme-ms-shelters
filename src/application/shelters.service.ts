@@ -23,23 +23,10 @@ export class SheltersService {
         const date = new Date();
         const shelterToCreate = Shelter.create(
             {
+                ...createShelterDto,
                 id: uuidv4(),
-                userOwnerId: createShelterDto.userOwnerId,
-                name: createShelterDto.name,
-                description: createShelterDto.description ?? null,
-                phone: createShelterDto.phone ?? null,
-                email: createShelterDto.email ?? null,
-                website: createShelterDto.website ?? null,
-                municipality: createShelterDto.municipality ?? null,
-                fullAddress: createShelterDto.fullAddress ?? null,
-                schedule: createShelterDto.schedule ?? null,
-                facebook: createShelterDto.facebook ?? null,
-                instagram: createShelterDto.instagram ?? null,
-                twitter: createShelterDto.twitter ?? null,
                 approved: false,
                 status: 'pending',
-                logo: createShelterDto.logo ?? null,
-                imageUrl: createShelterDto.imageUrl ?? null,
                 createdAt: date,
                 updatedAt: date,
             }
@@ -58,24 +45,10 @@ export class SheltersService {
             throw new Error('Unauthorized');
         }
         const updatedShelter = Shelter.create({
-            id: existingShelter.id,
-            userOwnerId: existingShelter.userOwnerId,
+            ...existingShelter,
+            ...updateShelterDto,
             name: updateShelterDto.name ?? existingShelter.name,
-            description: updateShelterDto.description !== undefined ? updateShelterDto.description : existingShelter.description,
-            phone: updateShelterDto.phone !== undefined ? updateShelterDto.phone : existingShelter.phone,
-            email: updateShelterDto.email !== undefined ? updateShelterDto.email : existingShelter.email,
-            website: updateShelterDto.website !== undefined ? updateShelterDto.website : existingShelter.website,
-            municipality: updateShelterDto.municipality !== undefined ? updateShelterDto.municipality : existingShelter.municipality,
-            fullAddress: updateShelterDto.fullAddress !== undefined ? updateShelterDto.fullAddress : existingShelter.fullAddress,
-            schedule: updateShelterDto.schedule !== undefined ? updateShelterDto.schedule : existingShelter.schedule,
-            facebook: updateShelterDto.facebook !== undefined ? updateShelterDto.facebook : existingShelter.facebook,
-            instagram: updateShelterDto.instagram !== undefined ? updateShelterDto.instagram : existingShelter.instagram,
-            twitter: updateShelterDto.twitter !== undefined ? updateShelterDto.twitter : existingShelter.twitter,
-            approved: existingShelter.approved,
-            status: existingShelter.status,
-            logo: updateShelterDto.logo !== undefined ? updateShelterDto.logo : existingShelter.logo,
-            imageUrl: updateShelterDto.imageUrl !== undefined ? updateShelterDto.imageUrl : existingShelter.imageUrl,
-            createdAt: existingShelter.createdAt,
+            description: updateShelterDto.description ?? existingShelter.description,
             updatedAt: new Date(),
         });
 

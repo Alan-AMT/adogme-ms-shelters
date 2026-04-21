@@ -38,6 +38,7 @@ export class PrismaShelterRepository implements ShelterRepository {
             status: shelter.status as ShelterStatus,
             logo: shelter.logo,
             imageUrl: shelter.imageUrl,
+            adoptionFee: shelter.adoptionFee,
             createdAt: shelter.createdAt,
             updatedAt: shelter.updatedAt,
         });
@@ -72,6 +73,7 @@ export class PrismaShelterRepository implements ShelterRepository {
             status: shelter.status as ShelterStatus,
             logo: shelter.logo,
             imageUrl: shelter.imageUrl,
+            adoptionFee: shelter.adoptionFee,
             createdAt: shelter.createdAt,
             updatedAt: shelter.updatedAt,
         });
@@ -123,6 +125,7 @@ export class PrismaShelterRepository implements ShelterRepository {
             status: shelter.status as ShelterStatus,
             logo: shelter.logo,
             imageUrl: shelter.imageUrl,
+            adoptionFee: shelter.adoptionFee,
             createdAt: shelter.createdAt,
             updatedAt: shelter.updatedAt,
         }))

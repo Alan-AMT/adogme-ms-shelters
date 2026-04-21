@@ -39,6 +39,7 @@ model Shelter {
   twitter      String?
   logo         String?
   imageUrl     String?
+  adoptionFee  Float?
 
   approved Boolean       @default(false)
   status   ShelterStatus @default(pending)
