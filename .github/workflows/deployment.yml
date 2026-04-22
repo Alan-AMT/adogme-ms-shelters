@@ -47,7 +47,7 @@ jobs:
         image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
         # Aquí mapeas el secreto de GCP a la variable que espera NestJS
         secrets: |
-          DATABASE_URL=MS_DOGS_DATABASE_URL:latest
+          DATABASE_URL=MS_SHELTERS_DATABASE_URL:latest
         # Ajustar según necesidades de seguridad
         # flags: '--allow-unauthenticated' 
         flags: '--no-allow-unauthenticated'
