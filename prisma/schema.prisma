@@ -44,6 +44,14 @@ model Shelter {
   approved Boolean       @default(false)
   status   ShelterStatus @default(pending)
 
+  acceptsDonations        Boolean @default(true)
+  donationCauseText       String? @db.Text
+  donationClabe           String?
+  donationBankName        String?
+  donationAccountHolder   String?
+  donationPaypalLink      String?
+  donationMercadoPagoLink String?
+
   createdAt DateTime
   updatedAt DateTime
 

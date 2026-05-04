@@ -58,3 +58,4 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 /generated/prisma
 
 /src/infrastructure/prisma/editor.ts
+/src/infrastructure/prisma/generated
