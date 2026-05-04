@@ -22,6 +22,13 @@ export class Shelter {
         public readonly adoptionFee: number | null,
         public readonly createdAt: Date,
         public readonly updatedAt: Date,
+        public readonly acceptsDonations: boolean,
+        public readonly donationCauseText: string | null,
+        public readonly donationClabe: string | null,
+        public readonly donationBankName: string | null,
+        public readonly donationAccountHolder: string | null,
+        public readonly donationPaypalLink: string | null,
+        public readonly donationMercadoPagoLink: string | null,
     ) { }
 
     public static create(shelterData: {
@@ -45,6 +52,13 @@ export class Shelter {
         adoptionFee: number | null,
         createdAt: Date,
         updatedAt: Date,
+        acceptsDonations: boolean,
+        donationCauseText: string | null,
+        donationClabe: string | null,
+        donationBankName: string | null,
+        donationAccountHolder: string | null,
+        donationPaypalLink: string | null,
+        donationMercadoPagoLink: string | null,
     }): Shelter {
         return new Shelter(
             shelterData.id,
@@ -67,6 +81,13 @@ export class Shelter {
             shelterData.adoptionFee,
             shelterData.createdAt,
             shelterData.updatedAt,
+            shelterData.acceptsDonations,
+            shelterData.donationCauseText,
+            shelterData.donationClabe,
+            shelterData.donationBankName,
+            shelterData.donationAccountHolder,
+            shelterData.donationPaypalLink,
+            shelterData.donationMercadoPagoLink,
         );
     }
 }

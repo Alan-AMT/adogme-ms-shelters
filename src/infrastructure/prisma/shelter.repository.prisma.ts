@@ -25,26 +25,8 @@ export class PrismaShelterRepository implements ShelterRepository {
         }
 
         return Shelter.create({
-            id: shelter.id,
+            ...shelter,
             userOwnerId: "",
-            name: shelter.name,
-            description: shelter.description,
-            phone: shelter.phone,
-            email: shelter.email,
-            website: shelter.website,
-            municipality: shelter.municipality,
-            fullAddress: shelter.fullAddress,
-            schedule: shelter.schedule,
-            facebook: shelter.facebook,
-            instagram: shelter.instagram,
-            twitter: shelter.twitter,
-            approved: shelter.approved,
-            status: shelter.status as ShelterStatus,
-            logo: shelter.logo,
-            imageUrl: shelter.imageUrl,
-            adoptionFee: shelter.adoptionFee,
-            createdAt: shelter.createdAt,
-            updatedAt: shelter.updatedAt,
         });
     }
 
@@ -60,51 +42,14 @@ export class PrismaShelterRepository implements ShelterRepository {
         }
 
         return Shelter.create({
-            id: shelter.id,
-            userOwnerId: shelter.userOwnerId,
-            name: shelter.name,
-            description: shelter.description,
-            phone: shelter.phone,
-            email: shelter.email,
-            website: shelter.website,
-            municipality: shelter.municipality,
-            fullAddress: shelter.fullAddress,
-            schedule: shelter.schedule,
-            facebook: shelter.facebook,
-            instagram: shelter.instagram,
-            twitter: shelter.twitter,
-            approved: shelter.approved,
-            status: shelter.status as ShelterStatus,
-            logo: shelter.logo,
-            imageUrl: shelter.imageUrl,
-            adoptionFee: shelter.adoptionFee,
-            createdAt: shelter.createdAt,
-            updatedAt: shelter.updatedAt,
+            ...shelter,
         });
     }
 
     async create(shelter: Shelter): Promise<void> {
         await this.prisma.shelter.create({
             data: {
-                id: shelter.id,
-                userOwnerId: shelter.userOwnerId,
-                name: shelter.name,
-                description: shelter.description,
-                phone: shelter.phone,
-                email: shelter.email,
-                website: shelter.website,
-                municipality: shelter.municipality,
-                fullAddress: shelter.fullAddress,
-                schedule: shelter.schedule,
-                facebook: shelter.facebook,
-                instagram: shelter.instagram,
-                twitter: shelter.twitter,
-                approved: shelter.approved,
-                status: shelter.status as any,
-                logo: shelter.logo,
-                imageUrl: shelter.imageUrl,
-                createdAt: shelter.createdAt,
-                updatedAt: shelter.updatedAt,
+                ...shelter,
             },
         });
     }
@@ -140,26 +85,11 @@ export class PrismaShelterRepository implements ShelterRepository {
     }
 
     async update(shelter: Shelter): Promise<void> {
+        const { userOwnerId, ...data } = shelter;
         await this.prisma.shelter.update({
             where: { id: shelter.id },
             data: {
-                userOwnerId: shelter.userOwnerId,
-                name: shelter.name,
-                description: shelter.description,
-                phone: shelter.phone,
-                email: shelter.email,
-                website: shelter.website,
-                municipality: shelter.municipality,
-                fullAddress: shelter.fullAddress,
-                schedule: shelter.schedule,
-                facebook: shelter.facebook,
-                instagram: shelter.instagram,
-                twitter: shelter.twitter,
-                approved: shelter.approved,
-                status: shelter.status as any,
-                logo: shelter.logo,
-                imageUrl: shelter.imageUrl,
-                updatedAt: shelter.updatedAt,
+                ...data
             },
         });
     }

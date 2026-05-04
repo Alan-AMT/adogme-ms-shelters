@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsNumber } from 'class-validator';
+import { IsString, IsOptional, IsNumber, IsBoolean } from 'class-validator';
 
 export class CreateShelterDto {
     @IsString()
@@ -44,4 +44,25 @@ export class CreateShelterDto {
     @IsOptional()
     @IsNumber()
     adoptionFee: number | null = null;
+    @IsBoolean()
+    @IsOptional()
+    acceptsDonations: boolean = true;
+    @IsString()
+    @IsOptional()
+    donationCauseText: string | null = null;
+    @IsString()
+    @IsOptional()
+    donationClabe: string | null = null;
+    @IsString()
+    @IsOptional()
+    donationBankName: string | null = null;
+    @IsString()
+    @IsOptional()
+    donationAccountHolder: string | null = null;
+    @IsString()
+    @IsOptional()
+    donationPaypalLink: string | null = null;
+    @IsString()
+    @IsOptional()
+    donationMercadoPagoLink: string | null = null;
 }
