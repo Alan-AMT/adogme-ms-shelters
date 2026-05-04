@@ -70,3 +70,5 @@ export class Shelter {
         );
     }
 }
+
+export type ShelterFindAll = Pick<Shelter, "id" | "name" | "municipality" | "fullAddress" | "schedule" | "logo" | "imageUrl">;

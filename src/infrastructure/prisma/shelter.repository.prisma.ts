@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { ShelterRepository } from "../../domain/shelter.repository.js";
 import { PrismaService } from "./prisma.service.js";
-import { Shelter, ShelterStatus } from "../../domain/shelter.entity.js";
+import { Shelter, ShelterFindAll, ShelterStatus } from "../../domain/shelter.entity.js";
 
 @Injectable()
 export class PrismaShelterRepository implements ShelterRepository {
@@ -14,6 +14,10 @@ export class PrismaShelterRepository implements ShelterRepository {
             where: {
                 id,
             },
+            // we dont expose the ownerId to the public
+            omit: {
+                userOwnerId: true
+            }
         });
 
         if (!shelter) {
@@ -22,7 +26,7 @@ export class PrismaShelterRepository implements ShelterRepository {
 
         return Shelter.create({
             id: shelter.id,
-            userOwnerId: shelter.userOwnerId,
+            userOwnerId: "",
             name: shelter.name,
             description: shelter.description,
             phone: shelter.phone,
@@ -105,31 +109,34 @@ export class PrismaShelterRepository implements ShelterRepository {
         });
     }
 
-    async getAllShelters(): Promise<Shelter[]>{
-        const shelters = await this.prisma.shelter.findMany()
-        const mapped = shelters.map(shelter => Shelter.create({
-            id: shelter.id,
-            userOwnerId: shelter.userOwnerId,
-            name: shelter.name,
-            description: shelter.description,
-            phone: shelter.phone,
-            email: shelter.email,
-            website: shelter.website,
-            municipality: shelter.municipality,
-            fullAddress: shelter.fullAddress,
-            schedule: shelter.schedule,
-            facebook: shelter.facebook,
-            instagram: shelter.instagram,
-            twitter: shelter.twitter,
-            approved: shelter.approved,
-            status: shelter.status as ShelterStatus,
-            logo: shelter.logo,
-            imageUrl: shelter.imageUrl,
-            adoptionFee: shelter.adoptionFee,
-            createdAt: shelter.createdAt,
-            updatedAt: shelter.updatedAt,
-        }))
-        return mapped
+    async getAllShelters(page: number | null, limit: number | null): Promise<{ data: ShelterFindAll[], total: number }>{
+        const total = await this.prisma.shelter.count();
+        
+        const take = limit || 12;
+        const skip = page ? (page - 1) * take : 0;
+
+        const shelters = await this.prisma.shelter.findMany({
+            where: {
+                approved: true,
+                status: 'approved'
+            },
+            skip,
+            take,
+            orderBy: {
+                createdAt: 'desc'
+            },
+            select: {
+                id: true,
+                name: true,
+                municipality: true,
+                fullAddress: true,
+                schedule: true,
+                logo: true,
+                imageUrl: true,
+            }
+        });
+        
+        return { data: shelters, total };
     }
 
     async update(shelter: Shelter): Promise<void> {
