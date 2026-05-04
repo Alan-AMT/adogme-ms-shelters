@@ -14,7 +14,7 @@ export class SheltersService {
 
     async getShelterById(id: string): Promise<Shelter> {
         // we dont expose the ownerId to the public
-        return this.shelterRepository.findById(id);
+        return this.shelterRepository.findByIdPublic(id);
     }
 
     async getShelterByUserOwnerId(userOwnerId: string): Promise<Shelter> {

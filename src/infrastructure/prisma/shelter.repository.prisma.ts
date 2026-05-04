@@ -14,6 +14,22 @@ export class PrismaShelterRepository implements ShelterRepository {
             where: {
                 id,
             },
+        });
+
+        if (!shelter) {
+            throw new Error("Shelter not found");
+        }
+
+        return Shelter.create({
+            ...shelter,
+        });
+    }
+
+    async findByIdPublic(id: string): Promise<Shelter> {
+        const shelter = await this.prisma.shelter.findUnique({
+            where: {
+                id,
+            },
             // we dont expose the ownerId to the public
             omit: {
                 userOwnerId: true
