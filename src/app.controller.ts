@@ -52,7 +52,7 @@ export class AppController {
     @Param("id") id: string,
     @Body() updateShelterDto: UpdateShelterDto,
     @User("sub") userId: string,
-  ): Promise<Shelter> {
+  ): Promise<{shelter: Shelter, uploadUrls?: string[]}> {
     return this.sheltersService.updateShelter(id, updateShelterDto, userId);
   }
 }

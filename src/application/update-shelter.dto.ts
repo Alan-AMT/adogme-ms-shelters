@@ -3,11 +3,11 @@ import { IsString, IsOptional, IsNumber, IsBoolean } from 'class-validator';
 export class UpdateShelterDto {
     @IsOptional()
     @IsString()
-    name?: string;
+    name: string;
     
     @IsOptional()
     @IsString()
-    description: string | null = null;
+    description: string;
     
     @IsOptional()
     @IsString()
@@ -46,12 +46,10 @@ export class UpdateShelterDto {
     twitter: string | null = null;
     
     @IsOptional()
-    @IsString()
-    logo: string | null = null;
+    newLogo: boolean | null = null;
     
     @IsOptional()
-    @IsString()
-    imageUrl?: string;
+    newImageUrl: boolean | null = null;
 
     @IsOptional()
     @IsNumber()

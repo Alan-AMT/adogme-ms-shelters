@@ -5,11 +5,15 @@ import { CreateShelterDto } from "./create-shelter.dto.js";
 import { UpdateShelterDto } from "./update-shelter.dto.js";
 import { v4 as uuidv4 } from "uuid";
 import { GetSheltersDto } from "./get-shelters.dto.js";
+import { ImagesPort } from "../domain/storage.port.js";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class SheltersService {
     constructor(
         private readonly shelterRepository: ShelterRepository,
+        private readonly imagesService: ImagesPort,
+        private readonly configService: ConfigService,
     ) {}
 
     async getShelterById(id: string): Promise<Shelter> {
@@ -55,7 +59,7 @@ export class SheltersService {
         };
     }
 
-    async updateShelter(id: string, updateShelterDto: UpdateShelterDto, userId: string): Promise<Shelter> {
+    async updateShelter(id: string, updateShelterDto: UpdateShelterDto, userId: string): Promise<{shelter: Shelter, uploadUrls?: string[]}> {
         const existingShelter = await this.shelterRepository.findById(id);
         if (!existingShelter) {
             throw new NotFoundException('Shelter not found');
@@ -63,15 +67,33 @@ export class SheltersService {
         if (existingShelter.userOwnerId !== userId) {
             throw new UnauthorizedException('Unauthorized to update this shelter');
         }
+        const { newLogo, newImageUrl, ...data } = updateShelterDto;
+        let dataToUpdate = {...data}
+        if (updateShelterDto.newLogo) {
+            dataToUpdate['logo'] = this.createImageUrls(id, "logo")
+        }
+        if (updateShelterDto.newImageUrl) {
+            dataToUpdate['imageUrl'] = this.createImageUrls(id, "portrait")
+        }
         const updatedShelter = Shelter.create({
             ...existingShelter,
-            ...updateShelterDto,
-            name: updateShelterDto.name ?? existingShelter.name,
-            description: updateShelterDto.description ?? existingShelter.description,
+            ...dataToUpdate,
             updatedAt: new Date(),
         });
 
-        await this.shelterRepository.update(updatedShelter);
-        return updatedShelter;
+        const [uploadUrls] = await Promise.all([
+            this.imagesService.generateUploadLinks(id, [
+                ...(dataToUpdate['logo'] ? ["logo"] : []),
+                ...(dataToUpdate['imageUrl'] ? ["portrait"] : [])
+            ]),
+            this.shelterRepository.update(updatedShelter)
+        ])
+
+        return {shelter: updatedShelter, uploadUrls: uploadUrls};
+    }
+
+    createImageUrls(shelterId: string, type: 'logo' | 'portrait'): string {
+        const BUCKET_NAME_PUBLIC = this.configService.get<string>('BUCKET_NAME_PUBLIC');
+        return `https://storage.googleapis.com/${BUCKET_NAME_PUBLIC}/${shelterId}/${type}.jpg?v=${Date.now()}`;
     }
 }
