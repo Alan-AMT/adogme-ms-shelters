@@ -48,6 +48,8 @@ jobs:
         # Aquí mapeas el secreto de GCP a la variable que espera NestJS
         secrets: |
           DATABASE_URL=MS_SHELTERS_DATABASE_URL:latest
+          BUCKET_NAME_PUBLIC=SHELTERS_BUCKET_NAME_PUBLIC:latest
+          BUCKET_NAME_UPLOADS=SHELTERS_BUCKET_NAME_UPLOADS:latest
         # Ajustar según necesidades de seguridad
         # flags: '--allow-unauthenticated' 
         flags: '--no-allow-unauthenticated'
