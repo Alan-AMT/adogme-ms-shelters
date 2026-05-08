@@ -100,6 +100,23 @@ export class PrismaShelterRepository implements ShelterRepository {
         return { data: shelters, total };
     }
 
+    async getAllSheltersCompleteData(): Promise<Shelter[]> {
+        const shelters = await this.prisma.shelter.findMany({
+            where: {
+                approved: true,
+                status: 'approved'
+            },
+            omit: {
+                userOwnerId: true
+            }
+        });
+
+        return shelters.map((shelter) => Shelter.create({
+            ...shelter,
+            userOwnerId: "",
+        }));
+    }
+
     async update(shelter: Shelter): Promise<void> {
         const { userOwnerId, ...data } = shelter;
         await this.prisma.shelter.update({

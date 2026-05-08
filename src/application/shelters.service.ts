@@ -59,6 +59,10 @@ export class SheltersService {
         };
     }
 
+    async getAllSheltersCompleteData(): Promise<Shelter[]> {
+        return this.shelterRepository.getAllSheltersCompleteData();
+    }
+
     async updateShelter(id: string, updateShelterDto: UpdateShelterDto, userId: string): Promise<{shelter: Shelter, uploadUrls?: string[]}> {
         const existingShelter = await this.shelterRepository.findById(id);
         if (!existingShelter) {

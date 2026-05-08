@@ -45,6 +45,11 @@ export class AppController {
     return this.sheltersService.getAllShelters(getSheltersDto);
   }
 
+  @Get("shelters/chatbot")
+  async getSheltersForChatbot(): Promise<Shelter[]> {
+    return this.sheltersService.getAllSheltersCompleteData();
+  }
+
   @UseGuards(UserAuthorizationGuard)
   @Put("shelter/:id")
   @Roles('shelter')

@@ -7,4 +7,5 @@ export abstract class ShelterRepository {
     abstract create(shelter: Shelter): Promise<void>;
     abstract update(shelter: Shelter): Promise<void>;
     abstract getAllShelters(page: number | null, limit: number | null): Promise<{ data: ShelterFindAll[], total: number }>;
+    abstract getAllSheltersCompleteData(): Promise<Shelter[]>;
 }
