@@ -96,7 +96,7 @@ export class SheltersService {
         ])
 
         const nameChanged = dataToUpdate['name'] !== undefined && dataToUpdate['name'] !== existingShelter.name;
-        const logoChanged = dataToUpdate['newLogo'] !== null;
+        const logoChanged = dataToUpdate['newLogo'] !== null && dataToUpdate['newLogo'];
 
         if (nameChanged || logoChanged) {
             this.eventEmitter.emit('shelter.updated', {

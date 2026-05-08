@@ -39,8 +39,17 @@ export class DogsAdapter implements DogsPort {
     async refreshTokenClient(): Promise<void> {
         try {
             const auth = new GoogleAuth();
-            const client = await auth.getIdTokenClient(process.env.DOGS_SERVICE_URL ?? "");
-            const token = await client.idTokenProvider.fetchIdToken(process.env.DOGS_SERVICE_URL ?? "");
+            let audience = process.env.DOGS_SERVICE_AUDIENCE || "";
+            if (!audience && process.env.DOGS_SERVICE_URL) {
+                try {
+                    const url = new URL(process.env.DOGS_SERVICE_URL);
+                    audience = url.origin;
+                } catch (e) {
+                    audience = process.env.DOGS_SERVICE_URL;
+                }
+            }
+            const client = await auth.getIdTokenClient(audience);
+            const token = await client.idTokenProvider.fetchIdToken(audience);
             this.dogsServiceToken = token;
         } catch (error) {
             console.error(error);
