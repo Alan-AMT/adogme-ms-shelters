@@ -51,4 +51,4 @@ jobs:
           BUCKET_NAME_PUBLIC=SHELTERS_BUCKET_NAME_PUBLIC:latest
           BUCKET_NAME_UPLOADS=SHELTERS_BUCKET_NAME_UPLOADS:latest
           DOGS_SERVICE_URL=DOGS_API_URL:latest
-          flags: '--no-allow-unauthenticated'
+        flags: '--no-allow-unauthenticated'
