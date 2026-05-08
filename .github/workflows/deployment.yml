@@ -50,7 +50,7 @@ jobs:
           DATABASE_URL=MS_SHELTERS_DATABASE_URL:latest
           BUCKET_NAME_PUBLIC=SHELTERS_BUCKET_NAME_PUBLIC:latest
           BUCKET_NAME_UPLOADS=SHELTERS_BUCKET_NAME_UPLOADS:latest
-          DOGS_MS_URL=DOGS_API_URL:latest
+          DOGS_SERVICE_URL=DOGS_API_URL:latest
           # Ajustar según necesidades de seguridad
           # flags: '--allow-unauthenticated' 
           flags: '--no-allow-unauthenticated'
