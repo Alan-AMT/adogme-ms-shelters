@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { GetSheltersDto } from "./get-shelters.dto.js";
 import { ImagesPort } from "../domain/storage.port.js";
 import { ConfigService } from "@nestjs/config";
+import { EventEmitter2 } from "@nestjs/event-emitter";
 
 @Injectable()
 export class SheltersService {
@@ -14,6 +15,7 @@ export class SheltersService {
         private readonly shelterRepository: ShelterRepository,
         private readonly imagesService: ImagesPort,
         private readonly configService: ConfigService,
+        private readonly eventEmitter: EventEmitter2,
     ) {}
 
     async getShelterById(id: string): Promise<Shelter> {
@@ -73,10 +75,10 @@ export class SheltersService {
         }
         const { newLogo, newImageUrl, ...data } = updateShelterDto;
         let dataToUpdate = {...data}
-        if (updateShelterDto.newLogo) {
+        if (newLogo) {
             dataToUpdate['logo'] = this.createImageUrls(id, "logo")
         }
-        if (updateShelterDto.newImageUrl) {
+        if (newImageUrl) {
             dataToUpdate['imageUrl'] = this.createImageUrls(id, "portrait")
         }
         const updatedShelter = Shelter.create({
@@ -92,6 +94,17 @@ export class SheltersService {
             ]),
             this.shelterRepository.update(updatedShelter)
         ])
+
+        const nameChanged = dataToUpdate['name'] !== undefined && dataToUpdate['name'] !== existingShelter.name;
+        const logoChanged = dataToUpdate['newLogo'] !== null;
+
+        if (nameChanged || logoChanged) {
+            this.eventEmitter.emit('shelter.updated', {
+                shelterId: updatedShelter.id,
+                shelterName: updatedShelter.name,
+                shelterLogo: updatedShelter.logo,
+            });
+        }
 
         return {shelter: updatedShelter, uploadUrls: uploadUrls};
     }
