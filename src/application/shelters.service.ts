@@ -110,7 +110,8 @@ export class SheltersService {
     }
 
     createImageUrls(shelterId: string, type: 'logo' | 'portrait'): string {
-        const BUCKET_NAME_PUBLIC = this.configService.get<string>('BUCKET_NAME_PUBLIC');
+        // const BUCKET_NAME_PUBLIC = this.configService.get<string>('BUCKET_NAME_PUBLIC');
+        const BUCKET_NAME_PUBLIC = 'adogme-shelters-compressed';
         return `https://storage.googleapis.com/${BUCKET_NAME_PUBLIC}/${shelterId}/${type}.jpg?v=${Date.now()}`;
     }
 }
