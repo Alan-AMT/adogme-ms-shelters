@@ -37,6 +37,9 @@ export class CreateShelterDto {
     twitter: string | null = null;
     @IsOptional()
     @IsString()
+    mapIframe: string | null = null;
+    @IsOptional()
+    @IsString()
     logo: string | null = null;
     @IsOptional()
     @IsString()

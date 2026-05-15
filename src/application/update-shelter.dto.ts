@@ -44,6 +44,10 @@ export class UpdateShelterDto {
     @IsOptional()
     @IsString()
     twitter: string | null = null;
+
+    @IsOptional()
+    @IsString()
+    mapIframe: string | null = null;
     
     @IsOptional()
     newLogo: boolean | null = null;
